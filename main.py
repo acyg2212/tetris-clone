@@ -181,13 +181,6 @@ def draw_text_middle(text, size, color, surface):
 
 
 def draw_grid(surface, grid):
-    surface.fill((0, 0, 0))
-
-    pygame.font.init()
-    font = pygame.font.SysFont('comicsans', 60)
-    label = font.render("Tetris Clone", 1, (255, 255, 255))
-
-    surface.blit(label, (top_left_x + play_width/2 - label.get_width()/2, 30))
 
     for i in range(len(grid)):
         for j in range(len(grid[i])):
@@ -208,8 +201,17 @@ def draw_next_shape(shape, surface):
     pass
 
 
-def draw_window(surface):
-    pass
+def draw_window(surface, grid):
+    surface.fill((0, 0, 0))
+
+    pygame.font.init()
+    font = pygame.font.SysFont('comicsans', 60)
+    label = font.render("Tetris Clone", 1, (255, 255, 255))
+
+    surface.blit(label, (top_left_x + play_width/2 - label.get_width()/2, 30))
+
+    draw_grid()
+    pygame.display.update()
 
 
 def main():
